@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class NearRoadResponse {
+public class MovieResponse {
 
 @SerializedName("page")
 @Expose
@@ -17,7 +17,7 @@ private Integer totalResults;
 private Integer totalPages;
 @SerializedName("results")
 @Expose
-private List<Result> results = null;
+private List<Movie> results = null;
 
 public Integer getPage() {
 return page;
@@ -43,11 +43,11 @@ public void setTotalPages(Integer totalPages) {
 this.totalPages = totalPages;
 }
 
-public List<Result> getResults() {
+public List<Movie> getResults() {
 return results;
 }
 
-public void setResults(List<Result> results) {
+public void setResults(List<Movie> results) {
 this.results = results;
 }
 

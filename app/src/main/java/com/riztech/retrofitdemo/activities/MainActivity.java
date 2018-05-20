@@ -1,10 +1,12 @@
 package com.riztech.retrofitdemo.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.riztech.retrofitdemo.R;
@@ -13,6 +15,7 @@ import com.riztech.retrofitdemo.api.APIInterface;
 import com.riztech.retrofitdemo.api.ApiClient;
 import com.riztech.retrofitdemo.models.Movie;
 import com.riztech.retrofitdemo.models.MovieResponse;
+import com.riztech.retrofitdemo.util.RecyclerItemClickListener;
 
 import java.util.List;
 
@@ -36,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
 
         final APIInterface apiService =
                 ApiClient.getClient().create(APIInterface.class);
+
+        moviesList.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Movie movie = mMovieClassAdapter.getItem(position);
+
+                        Toast.makeText(getApplicationContext(), "Movie title "+movie.getTitle(),Toast.LENGTH_SHORT).show();
+                    }
+                })
+        );
 
         Call<MovieResponse> movieResponseCall = apiService.getTopRatedMovies(API_KEY);
 

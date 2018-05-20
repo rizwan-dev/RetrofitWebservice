@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         Movie movie = mMovieClassAdapter.getItem(position);
 
                         Toast.makeText(getApplicationContext(), "Movie title "+movie.getTitle(),Toast.LENGTH_SHORT).show();
+
                     }
                 })
         );

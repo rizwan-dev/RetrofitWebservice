@@ -5,11 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.riztech.retrofitdemo.R;
 import com.riztech.retrofitdemo.models.Movie;
-
 
 import java.util.List;
 
@@ -17,7 +15,7 @@ import java.util.List;
  * Created by rizwan on 1/11/17.
  */
 
-public class MovieClassAdapter extends RecyclerView.Adapter<MovieClassAdapter.MovieHolder> {
+public class MovieClassAdapter extends RecyclerView.Adapter<MovieHolder> {
 
     private List<Movie> movieList;
     private Context context;
@@ -47,18 +45,7 @@ public class MovieClassAdapter extends RecyclerView.Adapter<MovieClassAdapter.Mo
         return movieList.size();
     }
 
-    class MovieHolder extends RecyclerView.ViewHolder {
-        TextView txtTitle, txtOverView, txtRating, txtVote;
 
-        public MovieHolder(View itemView) {
-            super(itemView);
-            txtTitle = (TextView)itemView.findViewById(R.id.txtTitle);
-            txtOverView = (TextView)itemView.findViewById(R.id.txtOverView);
-            txtRating = (TextView)itemView.findViewById(R.id.txtRating);
-            txtVote = (TextView)itemView.findViewById(R.id.txtVote);
-
-        }
-    }
 
     public Movie getItem(int position) {
         return movieList.get(position);

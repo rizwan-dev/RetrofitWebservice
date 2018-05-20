@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
 
+                Toast.makeText(getApplicationContext(), "Error occurred", Toast.LENGTH_SHORT).show();
+
             }
         });
 
